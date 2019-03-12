@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+	<meta name="generator" content="Jekyll v3.8.5">
+	<title>Offcanvas template · Bootstrap</title>
+	<link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/offcanvas/">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+  {% load static %}
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/profile-offcanvas.css' %}" rel="stylesheet">
+
+</head>
+
+<body class="bg-light">
+<style>
+.completion{
+	display: none
+}
+</style>
+
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">\
+    <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+        	<a class="nav-link" href="#">Hello {{object.name}}<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">Switch account</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Settings</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+      </ul>
+      <!-- <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form> -->
+    </div>
+</nav>
+
+<div class="nav-scroller bg-white shadow-sm">
+  <nav class="nav nav-underline">
+    <a class="nav-link active" href="#">Dashboard</a>
+    <a class="nav-link" href="#">
+      Friends
+      <span class="badge badge-pill bg-light align-text-bottom">27</span>
+    </a>
+    <a class="nav-link" href="#">Explore</a>
+    <a class="nav-link" href="#">Suggestions</a>
+  </nav>
+</div>
+
+<main role="main" class="container">
+  <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded shadow-sm">
+    <img class="mr-3" src="assets/bootstrap-outline.svg" alt="" width="48" height="48">
+    <div class="lh-100">
+    	<h6 class="mb-0 text-white lh-100">Bootstrap</h6>
+    	<small>Since 2011</small>
+    </div>
+  </div>
+
+  <div class="my-3 p-3 bg-white rounded shadow-sm">
+    <h6 class="border-bottom border-gray pb-2 mb-0">Recent updates</h6>
+    <div class="media text-muted pt-3">
+		<svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+			<strong class="d-block text-gray-dark">@username</strong>
+			Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+		</p>
+    </div>
+    <div class="media text-muted pt-3">
+		<svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#e83e8c"/><text x="50%" y="50%" fill="#e83e8c" dy=".3em">32x32</text></svg>
+			<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+			<strong class="d-block text-gray-dark">@username</strong>
+			Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+		</p>
+    </div>
+    <div class="media text-muted pt-3">
+      	<svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#6f42c1"/><text x="50%" y="50%" fill="#6f42c1" dy=".3em">32x32</text></svg>
+      	<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+        	<strong class="d-block text-gray-dark">@username</strong>
+        	Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+      	</p>
+    </div>
+    <small class="d-block text-right mt-3">
+      	<a href="#">All updates</a>
+    </small>
+  </div>
+
+<!-- Active Task 1 -->
+<div id="task-7558" class="my-3 p-3 bg-white rounded shadow-sm">
+	<h6 class="border-bottom border-gray pb-2 mb-0">Task: Act of Conscent</h6>
+	<small class="text-left mt-3">
+		Status: Pending
+	</small>
+	<div id="card-task-7558" class="card text-center collapse show" style="border:none">
+		<div class="card-body">
+			<h5 class="card-title">Special title treatment</h5>
+				<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+				<a id="submit-task-7558" class="btn btn-outline-primary" href="">I Agree</a>
+				<a href="" class="btn btn-outline-secondary">Read Policy</a>
+		</div>
+	</div>
+    <small class="d-block text-right mt-3">
+      	<a id="collapse-task-7558" href="">Collapse >></a>
+    </small>
+</div>
+
+<!-- Complete Task 1 -->
+<div id="task-7559" class="completion my-3 p-3 bg-white rounded shadow-sm">
+	<h6 class="border-bottom border-gray pb-2 mb-0">Task: Act of Conscent</h6>
+	<small class="text-left mt-3 text-success">
+		Status: Completed
+	</small>
+	<div id="card-task-7559" class="card text-center collapse show" style="border:none">
+		<div class="card-body">
+			<h5 class="card-title">Task completed</h5>
+			<p class="card-text">This section has been completed by user <i class="far fa-check-circle text-success"></i></p>
+		</div>
+	</div>
+    <small class="d-block text-right mt-3">
+		<a id="collapse-task-7559" href="">Collapse >></a>
+	</small>
+</div>
+
+<!-- Active Task 2 -->
+<div id="task-7561" class="my-3 p-3 bg-white rounded shadow-sm">
+	<h6 class="border-bottom border-gray pb-2 mb-0">Task: Duty Report</h6>
+	<small class="text-left mt-3">
+		Status: Pending
+		<br><br>
+	</small>
+	 <div id="card-task-7561" class="card collapse show" style="border:none">
+		<form>
+			<div class="form-group row">
+			<div class="col-sm-3">I have ensured the following:</div>
+				<div class="col-sm-6">
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" id="gridCheck1">
+					<label class="form-check-label" for="gridCheck1">
+						Sign in and out my attendance
+					</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" id="gridCheck1">
+					<label class="form-check-label" for="gridCheck1">
+						Be present in i-Hub during the tour of duty
+					</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" id="gridCheck1">
+					<label class="form-check-label" for="gridCheck1">
+						Shut down PC properly after closing (11:00 pm)
+					</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" id="gridCheck1">
+					<label class="form-check-label" for="gridCheck1">
+							Ensure all keyboards , mouse, and chairs all orderly arranged before closure
+					</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" id="gridCheck1">
+					<label class="form-check-label" for="gridCheck1">
+						Record left items found in record book
+					</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" id="gridCheck1">
+					<label class="form-check-label" for="gridCheck1">
+						Report any happening that needs the attention of staff <br> (Thomas: 96797237)
+					</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" id="gridCheck1">
+					<label class="form-check-label" for="gridCheck1">
+						Switch off all lightings before leaving; Ensure the two doors are electronically secured
+					</label>
+				</div>
+			</div>
+			</div><br>
+			<div class="form-group row">
+				<div class="text-center col-sm-11">
+				<button id="submit-task-7561" type="submit" class="btn btn-outline-primary">I acknowledge</button>
+				</div>
+			</div>
+		</form>
+	</div>
+    <small class="d-block text-right mt-3">
+		<a id="collapse-task-7561" href="">Collapse >></a>
+	</small>
+</div>
+
+<!-- Complete Task 2 -->
+<div id="task-7562" class="completion my-3 p-3 bg-white rounded shadow-sm">
+	<h6 class="border-bottom border-gray pb-2 mb-0">Tasks: Duty Report</h6>
+	<small class="text-left mt-3 text-success">
+		Status: Completed
+	</small>
+	<div id="card-task-7562" class="card text-center collapse show" style="border:none">
+		<div class="card-body">
+			<h5 class="card-title">Task completed</h5>
+			<p class="card-text">This section has been completed by user <i class="far fa-check-circle text-success"></i></p>
+		</div>
+	</div>
+	<small class="d-block text-right mt-3">
+		<a id="collapse-task-7562" href="">Collapse >></a>
+	</small>
+</div>
+
+</main>
+
+<!-- JQUERY Scripts -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-slim.min.js"><\/script>')</script><script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<script>
+
+$(function () {
+    'use strict'
+
+    $('[data-toggle="offcanvas"]').on('click', function () {
+      $('.offcanvas-collapse').toggleClass('open')
+    })
+
+// Task1: 7558-7559
+	// Collapsing
+	$('#collapse-task-7558').click(function(){
+		$('#card-task-7558').collapse('toggle');
+		return false;
+	});
+	$('#collapse-task-7559').click(function(){
+		$('#card-task-7559').collapse('toggle');
+		return false;
+	});
+	// Submit active to complete task
+	$('#submit-task-7558').click(function(){
+		$('#task-7559').show();
+		$('#task-7558').remove();
+		return false;
+	});
+
+// Task2: 7561-7562
+	// Collapsing
+	$('#collapse-task-7561').click(function(){
+		$('#card-task-7561').collapse('toggle');
+		return false;
+	});
+	$('#collapse-task-7562').click(function(){
+		$('#card-task-7562').collapse('toggle');
+		return false;
+	});
+	// Submit active to complete task
+	$('#submit-task-7561').click(function(){
+		$('#task-7562').show();
+		$('#task-7561').remove();
+		return false;
+	});
+
+})
+</script>
+
+</body>
+</html>
