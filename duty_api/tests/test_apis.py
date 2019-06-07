@@ -23,13 +23,13 @@ class DutyAPITests(APITestCase, RandomSupport):
             - is_staff (bool) & is_superuser (bool) are False
             - credential using email & password field
 
-            Args:
-                name (str): name for user, generate random name if None
-                email (str): email for credential, generate random .@example.com email if None
-                password (str): password for credential, generate random password if None
-            
-            Returns:
-                user (User)
+        Args:
+            name (str): name for user, generate random name if None
+            email (str): email for credential, generate random .@example.com email if None
+            password (str): password for credential, generate random password if None
+        
+        Returns:
+            user (User)
         """
         # random generate value if not specified
         name = name if name else self.generate_name()
@@ -66,7 +66,7 @@ class DutyAPITests(APITestCase, RandomSupport):
         self.assertTrue(is_logged_in)
 
         # GET expect Http400 or 404 since no duty ever associated with user before.
-        response = self.client.get(reverse('duty'))
+        response = self.client.get(reverse('duty-api'))
         self.assertIn(response.status_code,
             [status.HTTP_400_BAD_REQUEST, status.HTTP_404_NOT_FOUND]
         )
@@ -80,7 +80,7 @@ class DutyAPITests(APITestCase, RandomSupport):
 
         # GET expect Http200 success since duty is associated with authenticated user
         serialized = DutySerializer(self.user.duty)
-        response = self.client.get(reverse('duty'))
+        response = self.client.get(reverse('duty-api'))
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data.get('payload'), serialized.data)
 
@@ -100,7 +100,7 @@ class DutyAPITests(APITestCase, RandomSupport):
         self.assertTrue(is_logged_in)
 
         # POST expect Http200 success since creation is valid
-        response = self.client.post(reverse('duty'))
+        response = self.client.post(reverse('duty-api'))
         self.user.refresh_from_db() # refresh to get one-one duty
         serialized = DutySerializer(self.user.duty)
         self.assertIn(response.status_code, [status.HTTP_200_OK, status.HTTP_201_CREATED])
