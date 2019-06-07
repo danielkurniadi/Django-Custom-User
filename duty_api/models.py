@@ -145,7 +145,7 @@ class DutyManager(object):
     ################################
 
     def is_duty_finished(self):
-        return self.duty_end < timezone.now()
+        return self.duty.duty_end < timezone.now()
 
     ################################
     # Duty managements
@@ -154,7 +154,8 @@ class DutyManager(object):
     def start_duty(self, user):
         if self.duty:
             raise CannotStartOverOngoingDuty
-        self.duty = Duty.objects.create(user=user)
+        self._duty = Duty.objects.create(user=user)
+        self._duty.save()
 
     def clear_duty(self):
         if self.duty.duty_end >= timezone.now():
