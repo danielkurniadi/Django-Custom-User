@@ -22,11 +22,29 @@ def get_user_duty(user):
     except Duty.DoesNotExist:
         return None
 
+@login_required
+def duty_view(request):
+    user = request.user
+    duty_manager = DutyManager()
+    # GET
+    if request.method == 'GET':
+        # duty slot is available to be started
+        if (not duty_manager.duty) or (duty_manager.is_duty_finished()):
+            return render(request, 'start_duty.html', {'user': user})
+
+        # user is the one undertaking the duty
+        elif user == duty_manager.user:
+            return render(request, 'ongoing_duty.html', {'user': user})
+        
+        # any other user has undertaken an ongoing duty currently
+        else:
+            pass
+
 @api_view(['GET', 'POST', 'DELETE'])
 @permission_classes((IsAuthenticated, ))
 def duty_handler(request):
     user = request.user
-    duty_manager = DutyManager.instance
+    duty_manager = DutyManager()
 
     #############################################
     ## Duty Start
